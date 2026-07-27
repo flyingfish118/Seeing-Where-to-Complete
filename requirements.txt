@@ -1,0 +1,16 @@
+numpy>=1.26
+torch>=2.5
+torchvision>=0.20
+PyYAML>=6.0
+easydict>=1.13
+tensorboardX>=2.6
+open3d>=0.18
+trimesh>=4.4
+tqdm>=4.66
+pillow>=10.3
+timm>=0.9.16
+safetensors>=0.4.3
+h5py>=3.10
+opencv-python>=4.9
+matplotlib>=3.8
+transforms3d>=0.4

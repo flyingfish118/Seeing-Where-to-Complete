@@ -1,0 +1,26 @@
+# Never publish data, derived outputs, checkpoints, or experiment products.
+/experiments/
+/inference_result/
+/data/teeth/
+/data/scc_views/
+/data/Tooth/Tooth_full.json
+/outputs/
+/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+*.h5
+*.pkl
+*.pcd
+*.ply
+*.npy
+*.npz
+*.log
+*.tfevents*
+__pycache__/
+*.py[cod]
+*.so
+.DS_Store

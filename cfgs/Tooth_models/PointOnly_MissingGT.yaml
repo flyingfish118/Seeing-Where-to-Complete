@@ -1,0 +1,36 @@
+# Method 2: PointNet receives only the partial point cloud.
+data:
+  dataset_root: ${DENTAL_DATA_ROOT}
+  image_root: ${DENTAL_SCC_ROOT}
+  category_file: data/Tooth/Tooth.json
+  image_size: 256
+  num_workers: 8
+  load_views: false
+  load_teacher: false
+  load_gt_prototype: false
+
+model:
+  type: dinov3
+  num_prototype_points: 30
+  width: 96
+  dino_model_name: vit_large_patch16_dinov3
+  dino_checkpoint: ${DINO_V3_CHECKPOINT}
+  image_size: 256
+  use_point_encoder: true
+  use_view_encoder: false
+  export_source: pointonly_missinggt
+
+loss:
+  mode: missing_gt
+  tau: 0.05
+
+train:
+  epochs: 120
+  batch_size: 24
+  eval_batch_size: 48
+  lr: 0.0008
+  min_lr: 0.00002
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  amp: true
+  eval_every: 10

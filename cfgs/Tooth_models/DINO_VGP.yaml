@@ -1,0 +1,36 @@
+# DINO-VGP: frozen DINOv3 SCC features plus PointNet-style partial geometry.
+# The 30-point prototype is supervised directly by the dense missing support.
+data:
+  dataset_root: ${DENTAL_DATA_ROOT}
+  image_root: ${DENTAL_SCC_ROOT}
+  category_file: data/Tooth/Tooth.json
+  image_size: 256
+  num_workers: 8
+  load_teacher: false
+  load_gt_prototype: false
+
+model:
+  type: dinov3
+  num_prototype_points: 30
+  width: 96
+  dino_model_name: vit_large_patch16_dinov3
+  dino_checkpoint: ${DINO_V3_CHECKPOINT}
+  image_size: 256
+  use_point_encoder: true
+  use_view_encoder: true
+  export_source: dino_vgp
+
+loss:
+  mode: missing_gt
+  tau: 0.05
+
+train:
+  epochs: 120
+  batch_size: 12
+  eval_batch_size: 24
+  lr: 0.0008
+  min_lr: 0.00002
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  amp: true
+  eval_every: 10

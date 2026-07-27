@@ -1,0 +1,35 @@
+# C-VGP: compact shared SCC encoder plus PointNet-style partial geometry.
+# Frozen DINO aligns normalized per-view features only during training;
+# prototype coordinates are supervised solely by the dense missing support.
+data:
+  dataset_root: ${DENTAL_DATA_ROOT}
+  image_root: ${DENTAL_SCC_ROOT}
+  category_file: data/Tooth/Tooth.json
+  reference_root: ${DINO_REFERENCE_ROOT}
+  image_size: 160
+  num_workers: 8
+  load_teacher: false
+  load_gt_prototype: false
+
+model:
+  type: litedino
+  num_prototype_points: 30
+  width: 96
+  teacher_feature_dim: 1024
+  export_source: c_vgp
+
+loss:
+  mode: feature_distill_missing_gt
+  tau: 0.05
+  feature_weight: 0.25
+
+train:
+  epochs: 200
+  batch_size: 32
+  eval_batch_size: 64
+  lr: 0.0008
+  min_lr: 0.00002
+  weight_decay: 0.0001
+  grad_clip: 5.0
+  amp: true
+  eval_every: 10

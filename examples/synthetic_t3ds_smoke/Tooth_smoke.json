@@ -1,0 +1,13 @@
+[
+  {
+    "taxonomy_id": "11",
+    "taxonomy_name": "Synthetic tooth-like patch",
+    "train": [
+      "synthetic_train_00",
+      "synthetic_train_01"
+    ],
+    "test": [
+      "synthetic_test_00"
+    ]
+  }
+]

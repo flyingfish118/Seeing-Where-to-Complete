@@ -20,7 +20,17 @@ authorized Teeth3DS source + labels + split
   -> SymmCompletion + D2P modulation + MR supervision
 ```
 
-No weights, raw or derived dataset files, SCC images, cached features, exported prototypes, patient data, logs, predictions, or machine-specific paths are included. The private dental dataset used in the paper is not released. The ShapeNet-55 experiment follows the protocol documented in the supplementary material but is outside this minimal Teeth3DS reproduction package.
+No benchmark raw or derived data, weights, cached features, exported benchmark prototypes, patient data, logs, predictions, or machine-specific paths are included. The repository does include a tiny procedurally generated fixture under `examples/synthetic_t3ds_smoke`; it contains no Teeth3DS or patient-derived content and is used only for the execution check below. The private dental dataset used in the paper is not released. The ShapeNet-55 experiment follows the protocol documented in the supplementary material but is outside this minimal Teeth3DS reproduction package.
+
+## One-command smoke test
+
+After installing PyTorch, NumPy, and Pillow (or the complete `requirements.txt`), run from the repository root:
+
+```bash
+python examples/smoke_test.py
+```
+
+The command loads two synthetic training cases and one synthetic test case through the repository's actual Teeth3DS-facing dataset class. It performs a C-VGP forward pass, missing-region Chamfer supervision, one optimizer step, a test forward pass, and D2P-field construction on CPU. A successful run ends with `VGP synthetic smoke test: PASS`. This check verifies data interfaces and executable model/loss paths; its synthetic loss and CDMiss values are not paper results. It intentionally avoids DINO weights and the PointNet++ CUDA extension required by the full benchmark pipeline.
 
 ## Compatibility note
 

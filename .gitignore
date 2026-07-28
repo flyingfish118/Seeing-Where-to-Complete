@@ -18,6 +18,7 @@
 *.ply
 *.npy
 *.npz
+!/examples/synthetic_t3ds_smoke/**/*.pcd
 *.log
 *.tfevents*
 __pycache__/

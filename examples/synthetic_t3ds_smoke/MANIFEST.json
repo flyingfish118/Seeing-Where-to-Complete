@@ -1,0 +1,8 @@
+{
+  "fixture_version": 1,
+  "source": "Procedurally generated analytic ellipsoid surfaces",
+  "external_or_patient_data": false,
+  "train_cases": 2,
+  "test_cases": 1,
+  "variants_per_case": 1
+}

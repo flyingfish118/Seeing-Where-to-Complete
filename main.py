@@ -18,7 +18,7 @@ def get_args():
     parser.add_argument(
         '--config', 
         type = str, 
-        default = "cfgs/Tooth_models/SymmCompletion_missing_points.yaml", 
+        default = "cfgs/Tooth_models/SymmCompletion_C_VGP.yaml", 
         help = 'yaml config file')
     parser.add_argument(
         '--launcher',

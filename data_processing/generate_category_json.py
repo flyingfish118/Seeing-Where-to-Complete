@@ -87,7 +87,7 @@ def main():
     parser = argparse.ArgumentParser(description='Generate dataset JSON by FDI (e.g. 11,12) from t3ds_pcn folder structure')
     parser.add_argument('--root', '-r', required=True, help='t3ds_pcn 根目录路径')
     parser.add_argument('--out', '-o', default='dataset_fdi.json', help='输出 JSON 文件路径')
-    parser.add_argument('--splits', '-s', default='train,test', help='逗号分隔的 split 列表（默认: train,test,val）')
+    parser.add_argument('--splits', '-s', default='train,test', help='逗号分隔的 split 列表（默认: train,test）')
     parser.add_argument('--pretty', action='store_true', help='是否美化输出（缩进）')
     args = parser.parse_args()
 
